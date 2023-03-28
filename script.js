@@ -46,7 +46,7 @@ function createCube(x, y) {
   cube.position.copy(pos);
   scene.add(cube);
 
-  // Start a timer to remove the cube from the scene after 4 seconds
+  // Start a timer to remove the cube from the scene after 4 secs
   setTimeout(() => {
     scene.remove(cube);
   }, 4000);
