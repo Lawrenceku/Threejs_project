@@ -17,6 +17,9 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 const renderer = new THREE.WebGLRenderer({ antialias: true, canvas: document.getElementById('myCanvas') });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
+const light = new THREE.PointLight( 0xffffff, 1, 100 );
+light.position.set( 0, 0, 10 );
+scene.add( light );
 
 function getRandomColor() {
   const hue = Math.floor(Math.random() * 360);
@@ -82,13 +85,14 @@ document.getElementById('myCanvas').addEventListener('mousemove', onMouseMove);
 function animate() {
   requestAnimationFrame(animate);
   scene.children.forEach(cube => {
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
+    cube.rotation.x += 0.04;
+    cube.rotation.y += 0.04;
   });
   renderer.render(scene, camera);
 }
 
 animate();
+
 
 //will implement this later
 
